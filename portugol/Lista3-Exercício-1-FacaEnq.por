@@ -14,19 +14,20 @@ programa
 	escreva(x)
 	//processamentos
 	faca 
-	{
-		x = contador + x
-		escreva("\n",x)
-		
+	{	
 		se (x >= 300 e x <= 400)
 		{
 			x = contadorExc + x
 			escreva("\n",x)
 		}
+		senao 
+		{
+			x = contador + x
+			escreva("\n",x)
+		}
 	}
 	enquanto (x <= y)
 	//saidas
-	
 	}
 }
 /* $$$ Portugol Studio $$$ 
@@ -34,7 +35,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 480; 
+ * @POSICAO-CURSOR = 472; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
