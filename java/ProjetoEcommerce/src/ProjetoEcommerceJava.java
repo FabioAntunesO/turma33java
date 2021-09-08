@@ -4,39 +4,74 @@ import java.util.Scanner;
 
 public class ProjetoEcommerceJava 
 {
+	static Scanner scanner = new Scanner(System.in);
 	static double valor[] = { 119.99, 799.99, 109.99, 380.99, 539.99, 649.99, 850.99, 999.99, 220.99, 950.99 };
-	static double carrinho[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-	static double estoque[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
-	double valorTotal = 0.0, valorFinal = 0.0, valorImposto = 0.0, imposto = 0.00, juros = 0.0, taxaCartao = 0.0;
-	int tipoPagamento = 0;
-	static String produtosNome[] = { "Luminária de mesa", "Poltrona", "Abajur", "Estante", "Escrivaninha",
-			"Cadeira de Escritório", "Cama", "Cadeira Gamer", "Mesa de centro", "Sofá" };
+	static int carrinho[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+	static int estoque[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
+	static double valorTotal = 0.0, valorFinal = 0.0, valorImposto = 0.0, imposto = 0.00, juros = 0.0, taxaCartao = 0.0;
+	static double somatorio;
+	static int tipoPagamento = 1;
+	static String nomeUsuario = "Usuario anonimo";
+	static String cpfUsuario = "000.000.000-0";
+	static String produtosNome[] = { 
+			"Luminaria de mesa", 
+			"Poltrona", 
+			"Abajur", 
+			"Estante", 
+			"Escrivaninha",
+			"Cadeira de Escritorio",
+			"Cama",
+			"Cadeira Gamer",
+			"Mesa de centro",
+			"Sofa" };
+	
+	static String produtosNomeEspaco[] = {
+			"Luminaria de Mesa            ",
+			"Poltrona                     ",
+			"Abajur                       ",
+			"Estante                      ",
+			"Escrivaninha                 ",
+			"Cadeira de escritório        ",
+			"Cama Box                     ",
+			"Cadeira Gamer                ",
+			"Mesa de centro               ",
+			"Sofá                         "
+		};
+	
 	static String codigo[] = { "G5-1", "G5-2", "G5-3", "G5-4", "G5-5", "G5-6", "G5-7", "G5-8", "G5-9", "G5-10" };
-
-	public static void main(String[] args) 
+	
+	public static void main(String[] args) throws InterruptedException 
 	{
 		Locale.setDefault(Locale.US);
+		Scanner leia = new Scanner(System.in);
 		
-		cabecalho();
 		paginaPrincipal();
-
 	}
 	
-	public static void paginaPrincipal() {
+	public static void paginaPrincipal() throws InterruptedException {
 
 		Scanner leia = new Scanner(System.in);
 
 		char resposta = 0;
 
+		cabecalho();
 		System.out.println("Olá, deseja comprar algo? ");
-		System.out.println("Digite S/N: ");
+		System.out.print("Digite S/N: ");
 		resposta = leia.next().charAt(resposta);
 		if (resposta == 'S' || resposta == 's') {
+//			limpa();
+			pular();
+			cadastrarUsuario();
 			limpa();
 			cabecalho();
 			pular();
-			System.out.print("Iremos te apresentar os nossos produtos!\n");
-			//linha();
+			System.out.print("Iremos te apresentar agora os nossos" + "\n" + "produtos!\n");
+			linha();
+			Thread.sleep(2000);
+			desenho();
+			Thread.sleep(2000);
+			limpa();
+			cabecalho();
 			menuCarrinho();
 		} else if (resposta == 'N' || resposta == 'n') {
 			cabecalho();
@@ -49,17 +84,65 @@ public class ProjetoEcommerceJava
 		}
 
 	}
+	
+	public static void cadastrarUsuario() {		
+		System.out.print("Insira o seu nome: ");
+		nomeUsuario = scanner.nextLine();
+		System.out.print("Insira o seu CPF: ");
+		cpfUsuario = scanner.nextLine();
+	}
+	
+	public static void desenho() throws InterruptedException {
+		System.out.print("\n\n         /@@@@@@@@@@@@@@@@@@@@@@@%                  |||   &@@@@@@@@@@@@@@@@@@  \n");
+		Thread.sleep(100);
+		System.out.print("	 /@@@@@@@@@@@@@@@@@@@@@@@@@@@@@.            |||   &@@@@@@@@@@@@@@@@@@  \n");
+		Thread.sleep(100);
+		System.out.print("	 /@@@@@@@@&*@@@@@@@@@@@@*  @@@@@@@,         |||   &@@@@@@@@/%@@@@@@@@  \n");    
+		Thread.sleep(100);
+		System.out.print("	 /@@@@@@@@&*@@@@@@@@@@@@@@@@@..@@@@@*       |||   &@@@@@@@@/%@@@@@@@@  \n"); 
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@         &@@@@@@ @@@@@      |||        @@@@/%@@@@      \n");   
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@            @@@@@ &@@@@     |||        @@@@/%@@@@      \n");   
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@             .@@@@ @@@@%    |||        @@@@/%@@@@      \n");  
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@              @@@@#(@@@@    |||        @@@@/%@@@@      \n");    
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@              @@@@#*@@@@    |||        @@@@/%@@@@      \n");     
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@              @@@@#*@@@@    |||        @@@@/%@@@@      \n");    
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@              @@@@#*@@@@    |||        @@@@/%@@@@      \n");    
+		Thread.sleep(100);  
+		System.out.print("	      @@@@&*@@@@              @@@@#*@@@@    |||        @@@@/%@@@@      \n"); 
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@              @@@@#*@@@@    |||        @@@@/%@@@@      \n");  
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@             @@@@@ @@@@     |||        @@@@/%@@@@      \n");  
+		Thread.sleep(100);
+		System.out.print("	      @@@@&*@@@@           @@@@@# @@@@*     |||        @@@@/%@@@@      \n");  
+		Thread.sleep(100);
+		System.out.print("         *&&&&@@@@&*@@@@&&&&&@@@@@@@@@% @@@@@       |||   %&&&&@@@@/%@@@@&&&& \n"); 
+		Thread.sleep(100);
+		System.out.print("	 /@@@@@@@@&*@@@@@@@@@@@@@@@. @@@@@@*        |||   &@@@@@@@@/%@@@@@@@@  \n");      
+		Thread.sleep(100);
+		System.out.print("	 /@@@@,,,,,,,,,,,,,,,,/&@@@@@@@@@           |||   &@@@@,,,,,,,,,,@@@@  \n");       
+		Thread.sleep(100);
+		System.out.print("	 /@@@@@@@@@@@@@@@@@@@@@@@@@@@               |||   &@@@@@@@@@@@@@@@@@@  \n\n");    
+		Thread.sleep(100);
+	}
 
 	public static void menu() {
 		Scanner leia = new Scanner(System.in);
 
 		System.out.print("\n-------------------------------------------------------------------------------\n");
-		System.out.print("\n\t\tLISTA DE PRODUTOS DISPONIVEIS\n\n");
-		System.out.printf("CÓDIGO\tPRODUTO\t\t\t\t\tVALOR\t\tESTOQUE\n");
+		System.out.print("\n\t\tLISTA DE PRODUTOS DISPONÍVEIS\n\n");
+		System.out.printf("CODIGO\tPRODUTO\t\t\t\t VALOR\t\tESTOQUE\n");
 
 		for (int x = 0; x < 10; x++) {
 
-			System.out.printf("%s\t %s \t R$ %.2f \t %f\n", codigo[x], produtosNome[x], valor[x], estoque[x]);
+			System.out.printf("%s\t%s \t R$ %.2f \t     %d\n", codigo[x], produtosNomeEspaco[x], valor[x], estoque[x]);
 			
 		}
 
@@ -72,7 +155,7 @@ public class ProjetoEcommerceJava
 			if (carrinho[i] != 0) {
 				System.out.print(produtosNome[i]);
 				espacoNome(produtosNome[i]);
-				System.out.print(carrinho[i] + "       " + valor[i] + "      " + (valor[i] * carrinho[i]) + "\n");
+				System.out.printf(carrinho[i] + "      " + valor[i] + "     " + "%.2f" + "\n", (valor[i] * carrinho[i]));
 			}
 		}
 	}
@@ -90,7 +173,7 @@ public class ProjetoEcommerceJava
 			itensNoCarrinho();
 			System.out.print("\nDigite o código do produto a ser adicionado ao carrinho" + "\n"
 					+ "ou aperte '0' para encerrar compra: ");
-			codigoCompleto = leia.next();
+			codigoCompleto = leia.next().toUpperCase();
 
 			do {
 				for (int x = 0; x < 10; x++) {
@@ -113,10 +196,10 @@ public class ProjetoEcommerceJava
 			// System.out.print(codigoLer);
 
 			if (codigoCompleto.intern() == "0") {
-				notaFiscal();
+				metodoDePagamento();
 
 			} else if (codigoLer != -1 && estoque[codigoLer] <= 10) {
-				System.out.print("Qual a quantidade?: ");
+				System.out.print("Qual a quantidade? ");
 				try {
 					quantidade = leia.nextInt();
 				} catch (InputMismatchException erro1) {
@@ -124,7 +207,7 @@ public class ProjetoEcommerceJava
 					leia.nextLine();
 				}
 				while (quantidade < 0) {
-					System.out.println("Quantidade negativa, Digite novamente: ");
+					System.out.println("Quantidade negativa, digite novamente: ");
 					quantidade = leia.nextInt();
 				}
 
@@ -132,7 +215,7 @@ public class ProjetoEcommerceJava
 					carrinho[codigoLer] = carrinho[codigoLer] + quantidade;
 				} else {
 					System.out.println("Desculpe, mas nosso estoque não possui essa quantidade\n");
-					System.out.println("Quantidade disponivel em estoque: " + estoque[codigoLer]);
+					System.out.println("Quantidade disponível em estoque: " + estoque[codigoLer]);
 
 				}
 			} else {
@@ -143,92 +226,152 @@ public class ProjetoEcommerceJava
 
 	}
 
-
+	public static void metodoDePagamento() {
+		
+        cabecalho();
+        
+        System.out.printf("O valor do seu carrinho é de: R$ %.2f\n", calculaTotal());
+        System.out.printf("O valor de imposto é de:      R$ %.2f\n", calculaTotal()*0.09);
+//        System.out.println("\n\n\nPressione 'Enter' para continuar.");
+//        leia(pressione)
+//        cabecalho()
+        pular();
+        System.out.println("Escolha uma opção de pagamento:\n");
+//        linha()
+        System.out.println("1 - À vista - Promoção de 10% de Desconto!");
+        System.out.printf("    Sai por: R$ %.2f", calculaTotal()*0.9);
+        System.out.println("\n\n2 - No cartão - Acréscimo de 10% de Taxa!");
+        System.out.printf("    Sai por: R$ %.2f", calculaTotal()*1.1);
+        System.out.println("\n\n3 - Em 2x - Acréscimo de 15% de Juros e Taxa!");
+        System.out.printf("    Sai por 2x de: R$ %.2f", calculaTotal()*0.575);
+        System.out.printf(" Total: R$ %.2f", calculaTotal()*1.15);
+//        Total: R$"+mat.arredondar(valorTotal*1.15,2))
+        pular();
+        System.out.print("\nQual a forma de pagamento desejada? ");
+        tipoPagamento = scanner.nextInt();
+        
+        notaFiscal();
+	}
 
 	public static void notaFiscal() {
+		
+		limpa();
+//		cabecalho();
+		pular();
 
-		Scanner leia = new Scanner(System.in);
-		
-		String nome = "Ricardo Oliveira"; // exemplo
-		String CPF = "xxx.xxx.xxx-xx"; // exemplo
-		
-		double somatorio;
-		double valorTotal = 0.0, valorFinal = 0.0, PorcentagemImposto = 0.09;
-		double juros = 0.0, taxaCartao = 0.0;
-		int tipoPagamento=0;
-
-		formaPagamento();
-		
 		System.out.print("\n\t\t\t N O T A    F I S C A L\n");
 		System.out.print("---------------------------------------------------------------------------\n");
 		System.out.print("Itens \t\t\t\t  QtUnit \t VlUnit \t TotalUnit\n\n");
 
 		for (int i = 0; i < 10; i++) {
 			if (carrinho[i] != 0) {
-				System.out.print(produtosNome[i]);
+				System.out.print(produtosNomeEspaco[i]);
 				somatorio = carrinho[i] * valor[i];
-				System.out.printf("\t\t  " + carrinho[i] + "\t\t " + valor[i] + "\t\t " + "%.2f \n", somatorio);
+				System.out.printf("     " + carrinho[i] + "\t\t " + valor[i] + "\t\t " + "%.2f \n", somatorio);
 
 			}
 		}
 
 		System.out.print("\n---------------------------------------------------------------------------\n");
-		System.out.print(
-				"Imposto:" + "\t\t\t\t\t\t\t " + "R$ " + (PorcentagemImposto + 3) + Math.round(PorcentagemImposto + (2)) + "\n");
-		if (tipoPagamento == 1) { // OPÇÃO A VISTA: EXIBE O VALOR TOTAL COM 10% DE DESCONTO
-			System.out.print("Desconto:\t\t\t\t\t\t\t R$ " + (valorTotal * 0.1 + (5))
-					+ Math.round(valorTotal * 0.1 + (5)) + "\n");
+		System.out.printf("Total:                                                           R$ " 
+				+ "%.2f\n\n", (calculaTotal()));
+		
+		System.out.printf("Imposto:                                                         " 
+				+ "R$ %.2f\n", calculaTotal()*0.09);
+		if (tipoPagamento == 1) { // EDITAR A VARIAVEL TIPOPAGAMENTO
+			System.out.printf("Desconto:\t\t\t\t\t\t\t R$ %.2f\n", calculaTotal()*0.1);
+			System.out.printf("\nValor final:                                                     " 
+					+ "R$ %.2f\n", calculaTotal()*0.9);
 		}
 
-		if (tipoPagamento == 2) { // OPÇÃO 1X NO CARTAO DE CRÉDITO: EXIBE O VALOR TOTAL COM ACRÉSCIMO DE 10% DE JUROS
-			System.out.print("Taxa:" + (taxaCartao + (5)) + Math.round(taxaCartao + (2)) + "\n");
+		if (tipoPagamento == 2) { // EDITAR A VARIAVEL TIPOPAGAMENTO
+			System.out.printf("Taxa:                                                            " 
+					+ "R$ %.2f\n", calculaTotal()*0.1);
+			System.out.printf("\nValor final:                                                     " 
+					+ "R$ %.2f\n", calculaTotal()*1.1);
 		}
 
-		if (tipoPagamento == 3) { // OPÇÃO 2X NO CARTAO DE CRÉDITO: EXIBE O VALOR TOTAL COM ACRÉSCIMO DE 15% DE JUROS
-			System.out.print("Juros do cartao:" + (juros + (16)) + Math.round(juros + (2)) + "\n");
-			System.out.print("Taxa:" + (taxaCartao + (5)) + Math.round(taxaCartao + (2)) + "\n\n");
+		if (tipoPagamento == 3) { // EDITAR A VARIAVEL TIPOPAGAMENTO
+			System.out.printf("Taxa:                                                            " 
+					+ "R$ %.2f\n", calculaTotal()*0.1);
+			System.out.printf("Juros:                                                           " 
+					+ "R$ %.2f\n", calculaTotal()*0.05);
+			System.out.printf("\nValor final:                                                     " 
+					+ "R$ %.2f\n", calculaTotal()*1.15);
 		}
 
 		System.out.print("---------------------------------------------------------------------------\n");
-		System.out.printf("Total: \t\t\t\t\t\t\t\t R$ " + "%.2f \n", (calculaTotal(+2)));
-		// System.out.print("\nTotal: \t\t\t\t\t\t\t\t R$ " + (valorFinal+(3)) +
-		// Math.round(valorFinal+(2)) + "\n");
-		System.out.print("---------------------------------------------------------------------------\n");
-		System.out.printf("Cliente - %s", nome);
-		System.out.printf("\t\t\t      CPF - %s\n", CPF);
+		System.out.printf("Cliente - %s", nomeUsuario);
+		System.out.printf("\t\t\t       CPF - %s\n", cpfUsuario);
 
 		retiraItensEstoque();
 
 		zeraCarrinho();
+		
+		try {
+			qrCode();
+		} catch (InterruptedException e1) {
+			e1.printStackTrace();
+		}
+		
+		agradece();
 
-		
-		String pressione = " ";
+		Scanner leia = new Scanner(System.in);
 		System.out.print("\n\n\nPressione 'Enter' para voltar ao menu principal.");
-		pressione = leia.next();
+		leia.nextLine();
 		
-		paginaPrincipal(); 
+		try {
+			paginaPrincipal(); 
+		} catch (Exception e) {
+			System.out.println("Ocorreu um erro");
+		}
 
 	}
 
-	public static double calculaTotal(int i) {
+	public static double calculaTotal() {
 
 		double total = 0.0;
-		for (i = 0; i < 10; i++) {
-			total += carrinho[i] + valor[i];
+		for (int i = 0; i < 10; i++) {
+			total += carrinho[i] * valor[i];
 		}
 
 		return total;
 	}
 
 	public static void retiraItensEstoque() {
-
-		double carrinho[] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		double estoque[] = { 10, 10, 10, 10, 10, 10, 10, 10, 10, 10 };
-
+		
 		for (int i = 0; i < 10; i++) {
 			estoque[i] -= carrinho[i];
 		}
 
+	}
+	
+	public static void qrCode() throws InterruptedException {
+		System.out.println("\n\nEmissão do seu QR Code ... \n");
+		
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@@@@@@@@@@  @@@@@@@@@@@\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@       @@  @@       @@\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@  @@@  @@  @@  @@@  @@\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@       @@  @@       @@\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@@@@@@@@@@  @@@@@@@@@@@\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t                        \n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@@@@@@@@@@  @@@#    . @\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@       @@     ,@@@    \n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@  @@@  @@  @@@%   @@@@\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@       @@  @@@%      @\n");
+		Thread.sleep(100);
+		System.out.print("\t\t\t@@@@@@@@@@@  @@@%   @@@@\n");
+		Thread.sleep(100);
 	}
 
 	public static void zeraCarrinho() {
@@ -241,7 +384,7 @@ public class ProjetoEcommerceJava
 	}
 
 	public static void agradece() {
-		System.out.println("Obrigada por comprar com a Devs de int[e]=riores!\n");
+		System.out.println("\n\nObrigada por comprar com a Devs de int[e]=riores!\n");
 	}
 
 	public static void despede() {
@@ -249,6 +392,7 @@ public class ProjetoEcommerceJava
 	}
 
 	public static void cabecalho() {
+		limpa();
 		linha();
 		nome();
 		slogan();
@@ -259,13 +403,12 @@ public class ProjetoEcommerceJava
 	public static void nome() {
 		System.out.println("---Bem-vinde à Devs de int[e]=riores----");
 	}
-	
-	public static void espacoNome(String y) {
-		int h;
-		h=25-y.length();
-		for (int x =0; x<h;x++)
-		System.out.print(" ");
+	public static void espacoNome(String nome) {
+		int espacos = 25 - nome.length();
 		
+		for (int x = 0; x < espacos; x++) {
+			System.out.print(" ");
+		}		
 	}
 
 	public static void slogan() {
@@ -281,50 +424,8 @@ public class ProjetoEcommerceJava
 	}
 
 	public static void limpa() {
-		for (int clear = 0; clear < 10; clear++) {
+		for (int clear = 0; clear < 20; clear++) {
 			System.out.println(" ");
-		
-		
+		}
 	}
-	}
-
-	public static void desenhoQrCode() 
-	{
-		System.out.println("\n\nEmissão do seu QR Code ... \n");
-		
-		System.out.print("\t\t\t@@@@@@@@@@@  @@@@@@@@@@@\n");
-		System.out.print("\t\t\t@@       @@  @@       @@\n");
-		System.out.print("\t\t\t@@  @@@  @@  @@  @@@  @@\n");
-		System.out.print("\t\t\t@@       @@  @@       @@\n");
-		System.out.print("\t\t\t@@@@@@@@@@@  @@@@@@@@@@@\n");
-		System.out.print("\t\t\t                        \n");
-		System.out.print("\t\t\t@@@@@@@@@@@  @@@#    . @\n");
-		System.out.print("\t\t\t@@       @@     ,@@@    \n");
-		System.out.print("\t\t\t@@  @@@  @@  @@@%   @@@@\n");
-		System.out.print("\t\t\t@@       @@  @@@%      @\n");
-		System.out.print("\t\t\t@@@@@@@@@@@  @@@%   @@@@\n");
-	}
-
-	public static void formaPagamento() 
-	{
-		Scanner leia = new Scanner(System.in);
-		
-		int tipoPagamento=0;
-		
-		System.out.println("\nEscolha a forma de pagamento:");
-		System.out.println("\n1 - Á vista - com 10% de Desconto!");
-		System.out.println("\n2 - 1X No cartão de crédito - Acrécimo de 10% de Juros!");
-		System.out.println("\n3 - 2X No cartão de crédito - Acrécimo de 15% de Juros!");
-		tipoPagamento = leia.nextInt();
-	}
-}
-
-
-
-
-   
-   
-
-
-
-	
+}	
