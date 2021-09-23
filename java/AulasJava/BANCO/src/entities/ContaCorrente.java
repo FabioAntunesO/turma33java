@@ -30,10 +30,15 @@ public class ContaCorrente extends Conta
 	
 	//metodos
 	
-	//public void pediTalao(int qtd)
-	//{
-		
-	//}
+	public void pediTalao(int qtd)
+	{
+	
+		for (int i = 0; i < qtd; i++)
+		{
+			this.debito(30);
+		}
+	
+	}
 	
 	
 	

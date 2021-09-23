@@ -3,6 +3,7 @@ package app;
 import java.util.Scanner;
 
 import entities.Conta;
+import entities.ContaCorrente;
 
 public class ProgramaTeste 
 {
@@ -11,7 +12,7 @@ public class ProgramaTeste
 	{
 		Scanner read = new Scanner(System.in);
 		
-		Conta cli1 = new Conta();// instanciar - usar - criar objeto 
+		ContaCorrente cli1 = new ContaCorrente(322, null, 0);// instanciar - usar - criar objeto 
 		
 		System.out.println("Digite o numero da conta: ");
 		cli1.setnumero = read.nextInt();

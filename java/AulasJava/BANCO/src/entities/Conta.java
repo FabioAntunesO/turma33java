@@ -91,8 +91,10 @@ public abstract class Conta
 	
 	//seja o que Deus quiser...
 	@Override
-	public String toString() {
-		return "Conta [numero=" + numero + ", cpf=" + cpf + ", saldo=" + saldo + ", ativo=" + ativo + "]";
+	public String toString()
+	{
+		return ("Número da Conta: "+ this.numero +
+				"CPF: "+ this.cpf +
+				"SALDO: "+ this.saldo); 			
 	}
-	
 }
