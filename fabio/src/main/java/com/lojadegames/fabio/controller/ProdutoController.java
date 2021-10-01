@@ -19,8 +19,8 @@ import com.lojadegames.fabio.model.Produto;
 import com.lojadegames.fabio.repository.ProdutoRepository;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/produto")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController {
 
 	@Autowired
@@ -36,9 +36,9 @@ public class ProdutoController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 
-	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Produto>> getByName(@PathVariable String nome) {
-		return ResponseEntity.ok(repository.findAllByGeneroContainingIgnoreCase(nome));
+	@GetMapping("/genero/{genero}")
+	public ResponseEntity<List<Produto>> getByGenero(@PathVariable String genero) {
+		return ResponseEntity.ok(repository.findAllByGeneroContainingIgnoreCase(genero));
 	}
 
 	@PostMapping

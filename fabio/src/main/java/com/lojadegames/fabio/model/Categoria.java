@@ -23,8 +23,7 @@ public class Categoria {
 	private long id;
 	
 	@NotNull
-	@Size(min = 2, max = 100, message = "O atributo nome é obrigatório, deve conter no minimo 05 e no maximo 100 caracteres")
-	private String tipoDePlataforma;
+	private String plataforma;
 	
 	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
@@ -39,11 +38,11 @@ public class Categoria {
 	}
 
 	public String getTipoDePlataforma() {
-		return tipoDePlataforma;
+		return plataforma;
 	}
 
 	public void setTipoDePlataforma(String tipoDePlataforma) {
-		this.tipoDePlataforma = tipoDePlataforma;
+		this.plataforma = tipoDePlataforma;
 	}
 
 	public List<Produto> getProduto() {

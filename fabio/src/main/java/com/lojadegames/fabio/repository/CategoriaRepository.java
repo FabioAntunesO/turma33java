@@ -9,6 +9,6 @@ import com.lojadegames.fabio.model.Categoria;
 
 @Repository
 public interface CategoriaRepository extends JpaRepository<Categoria, Long> {
-	public List<Categoria> findAllByTipoDePlataformaContainingIgnoreCase (String TipoDePlataforma);
+	public List<Categoria> findAllByPlataformaContainingIgnoreCase (String plataforma);
 
 }

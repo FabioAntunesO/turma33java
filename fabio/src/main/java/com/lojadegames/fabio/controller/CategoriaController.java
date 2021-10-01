@@ -18,8 +18,8 @@ import com.lojadegames.fabio.model.Categoria;
 import com.lojadegames.fabio.repository.CategoriaRepository;
 
 @RestController
-@RequestMapping("/categorias")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequestMapping("/categorias")
 public class CategoriaController {
 	
 	@Autowired
@@ -37,10 +37,10 @@ public class CategoriaController {
 		return repository.findById(id).map(resp -> ResponseEntity.ok(resp)).orElse(ResponseEntity.notFound().build());
 	}
 	
-	@GetMapping("/TipoDePlataforma/{TipoDePlataforma}")
-	public ResponseEntity<List<Categoria>> GetByTitulo(@PathVariable String TipoDePlataforma)
+	@GetMapping("/plataforma/{plataforma}")
+	public ResponseEntity<List<Categoria>> GetByPlataforma(@PathVariable String plataforma)
 	{
-		return ResponseEntity.ok(repository.findAllByTipoDePlataformaContainingIgnoreCase(TipoDePlataforma));
+		return ResponseEntity.ok(repository.findAllByPlataformaContainingIgnoreCase(plataforma));
 	}
 	
 	@PostMapping
